@@ -15,7 +15,13 @@ namespace EmployeeAdminPortal.Controllers
             this.DbContext = dbContext;
         }
 
-        
+        [HttpGet]
+
+        public async Task<IActionResult> GetDepartmentAll() {
+
+
+            return Ok();         
+        }
 
 
 
