@@ -1,4 +1,49 @@
+# .NET ve Visual Studio ile ilgili geçici dosyalar ve dizinler
+.vs/
+*.suo
+*.user
+*.userosscache
+*.suo
+*.pdb
+*.obj
+*.exe
+*.dll
+*.cache
+*.log
+*.tmp
 
-/EmployeeAdminPortal/.vs
-/EmployeeAdminPortal/EmployeeAdminPortal/obj
-.vs
+# Projeye özgü geçici dosyalar
+**/bin/
+**/obj/
+
+# Derleme çıktıları
+*.dll
+*.exe
+*.pdb
+
+# Local Dotnet, NuGet, ve derleme araçları
+project.lock.json
+project.fragment.lock.json
+*.nupkg
+*.snupkg
+*.dotnet/
+*.nuget/
+*.nuget/*
+
+# Diğer IDE/Editor dosyaları
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+*.idea/
+*.vscode/
+
+# Paket yönetimi dosyaları
+node_modules/
+*.yarn-cache/
+*.yarn-integrity
+*.package-lock.json
+
+# Diğer
+.DS_Store
+Thumbs.db
