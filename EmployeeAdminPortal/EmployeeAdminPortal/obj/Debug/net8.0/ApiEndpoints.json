@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "EmployeeAdminPortal.Controllers.DepartmentController",
+    "Method": "GetDepartmentAll",
+    "RelativePath": "api/Department",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmployeeAdminPortal.Controllers.DepartmentController",
+    "Method": "AddDepartment",
+    "RelativePath": "api/Department",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "departmentDto",
+        "Type": "EmployeeAdminPortal.DTO.DepartmentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EmployeeAdminPortal.Controllers.EmployeesController",
     "Method": "GetEmployees",
     "RelativePath": "api/Employees",
@@ -77,26 +103,5 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EmployeeAdminPortal.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[EmployeeAdminPortal.WeatherForecast, EmployeeAdminPortal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]

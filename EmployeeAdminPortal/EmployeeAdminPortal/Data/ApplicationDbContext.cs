@@ -11,5 +11,7 @@ namespace EmployeeAdminPortal.Data
         }
 
         public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<Department> Department { get; set; }
     }
 }

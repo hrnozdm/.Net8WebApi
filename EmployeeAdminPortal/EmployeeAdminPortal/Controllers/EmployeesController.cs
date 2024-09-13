@@ -41,7 +41,7 @@ namespace EmployeeAdminPortal.Controllers
         [HttpPost]
         public IActionResult AddEmployees(EmployeDto employeDto){
 
-            var newEmployee = new Employee { Name=employeDto.Name,Email=employeDto.Email,Phone=employeDto.Phone,Salary=employeDto.Salary};
+            var newEmployee = new Employee { Name=employeDto.Name,Email=employeDto.Email,Phone=employeDto.Phone,Salary=employeDto.Salary, DepartmentId=employeDto.DepartmentId };
             DbContext.Employees.Add(newEmployee);
             DbContext.SaveChanges();
             return Ok(newEmployee);
@@ -64,6 +64,7 @@ namespace EmployeeAdminPortal.Controllers
             employee.Email = employeDto.Email;
             employee.Phone = employeDto.Phone;
             employee.Salary = employeDto.Salary;
+           
 
 
             await DbContext.SaveChangesAsync();

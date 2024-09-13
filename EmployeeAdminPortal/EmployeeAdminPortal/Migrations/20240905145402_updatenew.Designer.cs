@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeAdminPortal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240904233320_update2")]
-    partial class update2
+    [Migration("20240905145402_updatenew")]
+    partial class updatenew
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

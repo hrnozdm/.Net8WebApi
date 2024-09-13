@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeAdminPortal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240904231646_initial3")]
-    partial class initial3
+    [Migration("20240905171942_newdb1")]
+    partial class newdb1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,7 @@ namespace EmployeeAdminPortal.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -49,10 +50,7 @@ namespace EmployeeAdminPortal.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("DepartmentId1")
+                    b.Property<Guid>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
@@ -71,7 +69,7 @@ namespace EmployeeAdminPortal.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartmentId1");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Employees");
                 });
@@ -80,7 +78,7 @@ namespace EmployeeAdminPortal.Migrations
                 {
                     b.HasOne("EmployeeAdminPortal.Models.Entities.Department", "Department")
                         .WithMany("Employees")
-                        .HasForeignKey("DepartmentId1")
+                        .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

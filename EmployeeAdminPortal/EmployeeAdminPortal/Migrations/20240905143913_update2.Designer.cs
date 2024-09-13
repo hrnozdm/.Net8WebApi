@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeAdminPortal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240904232840_update")]
-    partial class update
+    [Migration("20240905143913_update2")]
+    partial class update2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,11 +27,9 @@ namespace EmployeeAdminPortal.Migrations
 
             modelBuilder.Entity("EmployeeAdminPortal.Models.Entities.Department", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -48,17 +46,12 @@ namespace EmployeeAdminPortal.Migrations
 
             modelBuilder.Entity("EmployeeAdminPortal.Models.Entities.Employee", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("DepartmentId1")
-                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -76,7 +69,7 @@ namespace EmployeeAdminPortal.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartmentId1");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Employees");
                 });
@@ -85,7 +78,7 @@ namespace EmployeeAdminPortal.Migrations
                 {
                     b.HasOne("EmployeeAdminPortal.Models.Entities.Department", "Department")
                         .WithMany("Employees")
-                        .HasForeignKey("DepartmentId1")
+                        .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

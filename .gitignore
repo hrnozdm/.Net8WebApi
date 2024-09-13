@@ -47,3 +47,6 @@ node_modules/
 # Diğer
 .DS_Store
 Thumbs.db
+/EmployeeAdminPortal/.vs
+/EmployeeAdminPortal/EmployeeAdminPortal/obj
+/EmployeeAdminPortal/EmployeeAdminPortal/obj

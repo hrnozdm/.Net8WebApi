@@ -1,6 +1,9 @@
 ﻿using EmployeeAdminPortal.Data;
+using EmployeeAdminPortal.DTO;
+using EmployeeAdminPortal.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeAdminPortal.Controllers
 {
@@ -16,12 +19,39 @@ namespace EmployeeAdminPortal.Controllers
         }
 
         [HttpGet]
-
         public async Task<IActionResult> GetDepartmentAll() {
-
-
-            return Ok();         
+            return Ok(await DbContext.Department.ToListAsync());
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddDepartment(DepartmentDto departmentDto){
+
+            try
+            {
+                var department = new Department()
+                {
+                    Name = departmentDto.Name,
+                    Description = departmentDto.Description,
+                };
+
+                DbContext.Department.Add(department);
+                await DbContext.SaveChangesAsync();
+
+                return Ok(department);
+               
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+
+
+        }
+
+
+        
+
 
 
 
